@@ -1,0 +1,24 @@
+{
+  "name": "reflugger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://atridgedcosta@github.com/bigdatr/reflugger.git"
+  },
+  "keywords": [
+    "reflux",
+    "debugger",
+    "flux"
+  ],
+  "author": "Atridge D'Costa",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/bigdatr/reflugger/issues"
+  },
+  "homepage": "https://github.com/bigdatr/reflugger#readme"
+}
