@@ -1,15 +1,17 @@
+var _ = require('lodash');
+
 function _interceptActions(Reflux) {
     var _createActionsFn = Reflux.createActions;
 
     Reflux.createActions = function(actions) {
         var _createActions = _createActionsFn(actions);
 
-        actions.forEach(function(a) {
+        for (var a in _createActions) {
             _createActions[a].listen(function(payload) {
                 var p = payload && payload.toJS ? payload.toJS() : payload;
                 console.log('reflugger', 'action:' + a, p);
             });
-        });
+        }
 
         return _createActions;
     };
