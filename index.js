@@ -7,7 +7,7 @@ function _interceptActions(Reflux) {
         actions.forEach(function(a) {
             _createActions[a].listen(function(payload) {
                 var p = payload && payload.toJS ? payload.toJS() : payload;
-                console.debug(new Date().toISOString(), a, p);
+                console.log('reflugger', 'action:' + a, p);
             });
         });
 
@@ -25,7 +25,7 @@ function _interceptStore(Reflux) {
 }
 
 var reflugger = function(Reflux) {
-    console.log('%c reflugger', 'color:white; background-color:red; font-size: 22px');
+    console.log('%c reflugger', 'color:white; background-color:#a074ab; font-size: 22px');
     _interceptActions(Reflux);
     _interceptStore(Reflux);
 };
