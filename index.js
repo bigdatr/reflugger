@@ -1,17 +1,15 @@
-var _ = require('lodash');
-
 function _interceptActions(Reflux) {
     var _createActionsFn = Reflux.createActions;
 
     Reflux.createActions = function(actions) {
         var _createActions = _createActionsFn(actions);
 
-        for (var a in _createActions) {
-            _createActions[a].listen(function(payload) {
+        Object.keys(_createActions).map(function(action){
+            _createActions[action].listen(function(payload) {
                 var p = payload && payload.toJS ? payload.toJS() : payload;
-                console.log('reflugger', 'action:' + a, p);
+                console.log('reflugger', 'action:' + action, p);
             });
-        }
+        });
 
         return _createActions;
     };
@@ -27,7 +25,7 @@ function _interceptStore(Reflux) {
 }
 
 var reflugger = function(Reflux) {
-    console.log('%c reflugger', 'color:white; background-color:#a074ab; font-size: 22px');
+    console.log('%creflugger', 'color:white; background-color:#a074ab; font-size: 22px');
     _interceptActions(Reflux);
     _interceptStore(Reflux);
 };
